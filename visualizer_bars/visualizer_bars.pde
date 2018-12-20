@@ -1,4 +1,3 @@
-//This project need the "minim" library , just download it in "Sketch -> import library -> Add library"
 
 import ddf.minim.*;
 import ddf.minim.analysis.*;
@@ -21,22 +20,21 @@ void setup()
   
   //minim variables setup
   minim = new Minim(this);
-  in = minim.getLineIn(); //important! minim select the default recording device as audio , you can't directly record the computer sounds (use stereo mix or a virtual cable set as default recording device)
+  in = minim.getLineIn(); 
   fft = new FFT(in.bufferSize(), in.sampleRate());
 }
 
 void draw()
 {
-  background(background, 255);  //set background color to prevent frame ghosting
-  translate(width/2, height/2);  //move the visualizer at the center of the screen
-  fft.forward(in.mix);  //scan the audio for the current frame
+  background(background, 255);  
+  translate(width/2, height/2); 
+  fft.forward(in.mix);  
 
   visualizer();
 }
 
 
-//////////////////////////////////////////////////////////////////////////////////
-//VISUALIZER
+
 
 void visualizer() {
   
